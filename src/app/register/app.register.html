@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row my-5">
+      <div class="col ">
+        <h3 class="text-primary">Register form</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="createUser()">
+            <div class="mt-4">
+              <label for="exampleInputEmail1" class="form-label">First name</label>
+              <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1">
+              <small class="dangerColor">First name is required!</small>
+            </div>
+            <div class="mt-4">
+              <label for="exampleInputEmail1" class="form-label">Last name</label>
+              <input type="text" formControlName="lastName" class="form-control" id="exampleInputEmail1">
+              <small class="dangerColor">Last name is required!</small>
+            </div>
+            <div class="mt-4">
+              <label for="exampleInputEmail1" class="form-label">Username</label>
+              <input type="email" formControlName="username" class="form-control" id="exampleInputEmail1" >
+              <small class="dangerColor">Username is required!</small>
+            </div>
+            <div class="mt-4">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+              <small class="dangerColor">Password is required!</small>
+            </div>
+            <div *ngIf="adminInput" class="mt-4">
+              <label for="exampleInputPassword1" class="form-label">Admin password</label>
+              <input type="password" formControlName="adminPassword" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" [disabled]="!registerForm.valid" class="btn btn-outline-primary mt-3 me-1">Register</button>
+            <button *ngIf="!adminInput" type="button" (click)="adminButton()" class="btn btn-outline-secondary mt-3">admin registration </button>
+          
+          </form>
+      </div>
+      <div class="col">
+    </div>
+    </div>
+  </div>
